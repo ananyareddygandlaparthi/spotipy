@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+
+       <div>
+        <center>
+            <h1>Spotipy Playlist Manager</h1>
+        </center>
+    </div>
+
+
+    <div style="width: 100%; height: auto" class="buttons">
+        <center>
+            <div>
+				<a href=tracks ><button >Show Top 10 Songs by Artist</button></a>
+				<a href=albumsearch ><button >Album Search</button></a>
+				<a href=getTracks ><button >Receipts</button></a>
+				<a href=create_playlist ><button >Create Playlist</button></a>
+            </div>
+        </center>
+    </div>
+
+ 
+</body>
+
+</html>

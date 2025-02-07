@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Songs</title>
+</head>
+<body>
+    <h1>Search Songs</h1>
+    <form action="{{ url_for('search_songs') }}" method="post">
+        <label for="user_input">Enter the song:</label>
+        <input type="text" id="user_input" name="user_input" required>
+        <br>
+        <input type="submit" value="Search">
+    </form>
+    {% if song_uri %}
+        <h2>Song Found</h2>
+        <p>Song URI: {{ song_uri }}</p>
+        <a href="{{ url_for('add_to_playlist', song_uri=song_uri) }}">Add to Playlist</a>
+    {% endif %}
+</body>
+</html>

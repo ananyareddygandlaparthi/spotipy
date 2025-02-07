@@ -1,0 +1,4 @@
+CLIENT_ID='2d3b28f6ad44408492e80d62f4acf059'
+CLIENT_SECRET='1d0d8ebc6fef4ff292816165eb3e62ae'
+SECRET_KEY="seret-key"
+USERID='312po7vq6kse2d37czuodox6rihi'

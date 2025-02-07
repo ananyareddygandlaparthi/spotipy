@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Spotify Playlist Creator</title>
+	<style>
+        body1 {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+		.inner-container2 {
+			background-image: url(wrinkled-paper.jpg);
+			background-position: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 380px;
+            text-align: left;
+        }
+		
+		inner-container {
+			background-image: url('/wrinkled-paper.jpg');
+			background-repeat:no-repeat;
+			background-size:contain;
+			background-position: center;
+			width: 340px;
+			filter: brightness(110%);
+			padding: 20px;
+			text-transform: uppercase;
+		}
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+            font-size: 25px;
+            text-align: left;
+        }
+
+        input {
+            width: 20%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 25px;
+        }
+		select {
+            width: 20%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 25px;
+        }
+	textarea {
+            width: 20%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 25px;
+        }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+			font-size: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+			font-size: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+			font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+        <center>
+            <h1>Spotify PlayList Creator</h1>
+        </center>
+    </div>
+       <center>
+            <div  class="buttons">
+<a href=tracks ><button >Show Top 10 Songs by Artist</button></a>
+				<a href=albumsearch ><button >Album Search</button></a>
+				<a href=getTracks ><button >Receipts</button></a>
+				<a href=create_playlist ><button >Create Playlist</button></a>
+            </div>
+        </center>
+    <h2>Spotify Playlist Creator</h2>
+
+    <form action="{{ url_for('create_playlist') }}" method="post">
+        <label for="playlist_name">Playlist Name:</label>
+        <input type="text" id="playlist_name" name="playlist_name" required>
+        <br>
+        <label for="playlist_description">Playlist Description:</label>
+        <textarea id="playlist_description" name="playlist_description" required></textarea>
+        <br>
+        <button type="submit">Create Playlist</button>
+    </form>
+ <label>
+    {{ result_text}}</label>
+	
+    <hr>
+
+    <form action="{{ url_for('add_tracks') }}" method="post">
+         <label for="playlist_select">Select a Playlist:</label>
+        <select id="playlist_select" name="playlist_id">
+            {% for playlist_id, playlist_name in playlists %}
+                <option value="{{ playlist_id }}">{{ playlist_name }}</option>
+            {% endfor %}
+        </select>
+          <br>
+        <label for="track_uris">Track URI:</label>
+        <input type="text" id="track_uris" name="track_uris" required>
+        <br>
+        <button type="submit">Add Tracks</button>
+    </form>
+	<label>
+    {{ add_result}}</label>	
+</body>
+</html>
